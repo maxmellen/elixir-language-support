@@ -1,65 +1,30 @@
-# elixir-language-support README
+# Elixir Language Support
 
-This is the README for your extension "elixir-language-support". After writing up a brief description, we recommend including the following sections.
+## Why another Elixir extension?
+
+Before anything, I want to acknowledge the existence of two great Elixir extensions for VS Code:
+
+- [vscode-elixir](https://marketplace.visualstudio.com/items?itemName=mjmcloug.vscode-elixir) by Mat McLoughlin
+- [ElixirLS: Elixir support and debugger](https://marketplace.visualstudio.com/items?itemName=JakeBecker.elixir-ls) by Jake Becker
+
+These respectively hook into [ElixirSense](https://github.com/msaraiva/elixir_sense) and [Elixir Language Server (ElixirLS)](https://github.com/JakeBecker/elixir-ls) to provide language _intelligence_ to VS Code.
+
+I am really happy these projects exist, and I think they contribute a great deal to the Elixir community. They do however present some quirks but I am sure most users will be delighted with the _intelligence_ they provide.
+
+I, myself, am content with _dumber_ language support, and simply letting VS Code do the rest (such as fuzzy completion).
+
+In other words, if you would like to use an _intelligent_ Elixir extension, both extenstions mentioned above are actively maintained and should fit your needs. If you however wish to use something _dumber_, maybe this extension is the one for you.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This project uses the grammars, snippets and indentation rules from the [Atom Elixir package](https://github.com/elixir-editors/language-elixir) and lets VS Code handle the rest (i.e. fuzzy completion).
 
-For example if there is an image subfolder under your extension project workspace:
+## License
 
-\!\[feature X\]\(images/feature-x.png\)
+This extension is licensed under the MIT License.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+See [LICENSE](LICENSE).
 
-## Requirements
+## Third Party Notices
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+See [NOTICE](NOTICE).
