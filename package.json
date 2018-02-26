@@ -21,6 +21,10 @@
             "language": "elixir",
             "scopeName": "source.elixir",
             "path": "./syntaxes/elixir.tmLanguage.json"
+        }],
+        "snippets": [{
+            "language": "elixir",
+            "path": "./snippets/elixir.json"
         }]
     }
 }
