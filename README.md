@@ -1,65 +1,53 @@
-# elixir-language-support README
+# Elixir Language Support
 
-This is the README for your extension "elixir-language-support". After writing up a brief description, we recommend including the following sections.
+Basic support for the Elixir programming language in VS Code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension provides VS Code with syntax highlighting and snippets for the
+Elixir programming language. It also integrates with `mix format` to provide
+document formatting. This can be enabled on save by adding the following
+snippet to your user or workspace's `settings.json` file:
+```json
+{
+  // ...
+  "[elixir]": {
+    "editor.formatOnSave": true
+  },
+  // ...
+}
+```
 
-For example if there is an image subfolder under your extension project workspace:
+## Motivation
 
-\!\[feature X\]\(images/feature-x.png\)
+There already exist two popular VS Code extensions for the Elixir programming
+language:
+- [ElixirLS: Elixir support and debugger][JakeBecker.elixir-ls]
+- [vscode-elixir][mjmcloug.vscode-elixir]
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+These extensions are both more featureful than this one, providing for example
+intelligent code completion. However, both have their quircks and default
+settings that might appear oppinionated to some users. They also both provide
+their own language grammars and snippets which are maintained seperately and
+might not be up to date with each other.
 
-## Requirements
+This extension aims to provide bare-bones language support for the Elixir
+programming language, taking as many settings as possible from upstream
+sources. Its language grammar
+and snippets, as well as some other settings are taken directly from
+[Elixir.tmbundle][elixir-tmbundle]. One of the aims of this extension is to
+stay up to date with upstream sources, forwarding issues and changes upstream, hoping that other extensions might build upon it.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## License
 
-## Extension Settings
+This extension is published under [the MIT license](LICENSE).
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Acknowledgements
 
-For example:
+The Elixir language grammar and snippets, as well as some other settings are
+taken directly from [Elixir.tmbundle][elixir-tmbundle] which is released under
+[the Apache License, Version 2.0](ACKNOWLEDGMENTS).
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+[elixir-tmbundle]: https://github.com/elixir-editors/elixir-tmbundle
+[JakeBecker.elixir-ls]: https://marketplace.visualstudio.com/items?itemName=JakeBecker.elixir-ls
+[mjmcloug.vscode-elixir]: https://marketplace.visualstudio.com/items?itemName=mjmcloug.vscode-elixir

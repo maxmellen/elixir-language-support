@@ -1,7 +1,7 @@
 {
     "name": "elixir-language-support",
     "displayName": "Elixir Language Support",
-    "description": "",
+    "description": "Basic support for the Elixir programming language in VS Code.",
     "version": "0.0.1",
     "publisher": "maxmellen",
     "engines": {
