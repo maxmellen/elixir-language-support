@@ -1,0 +1,26 @@
+{
+    "name": "elixir-language-support",
+    "displayName": "Elixir Language Support",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "maxmellen",
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "elixir",
+            "aliases": ["Elixir", "elixir"],
+            "extensions": [".ex",".exs"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "elixir",
+            "scopeName": "source.elixir",
+            "path": "./syntaxes/elixir.tmLanguage"
+        }]
+    }
+}
