@@ -12,14 +12,10 @@
         "Snippets"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onLanguage:elixir"
     ],
     "main": "./out/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }],
         "languages": [{
             "id": "elixir",
             "aliases": ["Elixir", "elixir"],
