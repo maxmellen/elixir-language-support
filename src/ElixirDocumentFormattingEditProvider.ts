@@ -1,4 +1,4 @@
-import { exec } from 'child_process';
+import { execFile } from 'child_process';
 import * as vscode from 'vscode';
 
 export default class ElixirDocumentFormattingEditProvider
@@ -24,9 +24,10 @@ export default class ElixirDocumentFormattingEditProvider
 
 function mixFormat(cwd: string, fileName: string): Thenable<void> {
     return new Promise((resolve, reject) => {
-        exec(`mix format ${fileName}`, { cwd }, (error, _stdout, _stderr) => {
-            if (error) { return reject(error); }
-            return resolve();
-        });
+        execFile('mix', ['format', fileName], { cwd },
+            (error, _stdout, _stderr) => {
+                if (error) { return reject(error); }
+                return resolve();
+            });
     });
 }
