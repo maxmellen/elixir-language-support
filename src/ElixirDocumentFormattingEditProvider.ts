@@ -3,6 +3,12 @@ import * as vscode from 'vscode';
 
 export default class ElixirDocumentFormattingEditProvider
     implements vscode.DocumentFormattingEditProvider {
+    private outputChannel: vscode.OutputChannel;
+
+    constructor(outputChannel: vscode.OutputChannel) {
+        this.outputChannel = outputChannel;
+    }
+
     provideDocumentFormattingEdits(
         document: vscode.TextDocument,
         _options: vscode.FormattingOptions,
@@ -18,15 +24,18 @@ export default class ElixirDocumentFormattingEditProvider
             let fileName = vscode.workspace.asRelativePath(document.uri);
 
             return mixFormat(cwd, fileName);
-        }).then(() => null, () => null);
+        }).then(() => null, (stderr) => {
+            this.outputChannel.append(stderr);
+            return null;
+        });
     }
 }
 
 function mixFormat(cwd: string, fileName: string): Thenable<void> {
     return new Promise((resolve, reject) => {
         execFile('mix', ['format', fileName], { cwd },
-            (error, _stdout, _stderr) => {
-                if (error) { return reject(error); }
+            (error, _stdout, stderr) => {
+                if (error) { return reject(stderr); }
                 return resolve();
             });
     });

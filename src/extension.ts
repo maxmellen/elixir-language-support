@@ -11,8 +11,11 @@ const ELIXIR_MODE: vscode.DocumentFilter =
 
 // this method is called when your extension is activated
 export function activate(context: vscode.ExtensionContext) {
+    let outputChannel =
+        vscode.window.createOutputChannel('Elixir Language Support');
+
     let elixirDocumentFormattingEditProvider =
-        new ElixirDocumentFormattingEditProvider();
+        new ElixirDocumentFormattingEditProvider(outputChannel);
 
     let elixirDocumentFormattingEditProviderDisposable =
         vscode.languages.registerDocumentFormattingEditProvider(
