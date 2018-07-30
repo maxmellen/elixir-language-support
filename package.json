@@ -30,7 +30,12 @@
         "snippets": [{
             "language": "elixir",
             "path": "./snippets/snippets.json"
-        }]
+        }],
+        "configurationDefaults": {
+            "[elixir]": {
+                "editor.snippetSuggestions": "top"
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
