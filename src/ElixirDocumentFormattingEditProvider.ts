@@ -14,29 +14,39 @@ export default class ElixirDocumentFormattingEditProvider
         _options: vscode.FormattingOptions,
         _token: vscode.CancellationToken
     ): vscode.ProviderResult<vscode.TextEdit[]> {
-        return document.save().then(_fileSaved => {
-            let workspaceFolder =
-                vscode.workspace.getWorkspaceFolder(document.uri);
+        let workspaceFolder = vscode.workspace.getWorkspaceFolder(document.uri);
+        if (!workspaceFolder) { return null; }
+        let workspaceFolderPath = workspaceFolder.uri.fsPath;
+        let documentText = document.getText();
 
-            if (!workspaceFolder) { return Promise.reject(); }
-
-            let cwd = workspaceFolder.uri.fsPath;
-            let fileName = vscode.workspace.asRelativePath(document.uri);
-
-            return mixFormat(cwd, fileName);
-        }).then(() => null, (stderr) => {
-            this.outputChannel.append(stderr);
-            return null;
-        });
+        return execMixFormat(workspaceFolderPath, documentText)
+            .then(
+                formattedText => [replaceFullDocumentText(document, formattedText)],
+                mixFormatError => {
+                    this.outputChannel.append(mixFormatError);
+                    return null;
+                }
+            );
     }
 }
 
-function mixFormat(cwd: string, fileName: string): Thenable<void> {
+function execMixFormat(workingDirectory: string, inputText: string): Thenable<string> {
     return new Promise((resolve, reject) => {
-        execFile('mix', ['format', fileName], { cwd },
-            (error, _stdout, stderr) => {
-                if (error) { return reject(stderr); }
-                return resolve();
-            });
+        let mixFormatProcess =
+            execFile('mix', ['format', '-'], { cwd: workingDirectory },
+                (error, formattedText, mixFormatError) => {
+                    if (error) { return reject(mixFormatError); }
+                    return resolve(formattedText);
+                });
+
+        mixFormatProcess.stdin.write(inputText);
+        mixFormatProcess.stdin.end();
     });
+}
+
+function replaceFullDocumentText(document: vscode.TextDocument, newText: string): vscode.TextEdit {
+    let firstLine = document.lineAt(0);
+    let lastLine = document.lineAt(document.lineCount - 1);
+    let fullRange = new vscode.Range(firstLine.range.start, lastLine.range.end);
+    return vscode.TextEdit.replace(fullRange, newText);
 }
