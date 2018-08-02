@@ -15,11 +15,10 @@ export default class ElixirDocumentFormattingEditProvider
         _token: vscode.CancellationToken
     ): vscode.ProviderResult<vscode.TextEdit[]> {
         let workspaceFolder = vscode.workspace.getWorkspaceFolder(document.uri);
-        if (!workspaceFolder) { return null; }
-        let workspaceFolderPath = workspaceFolder.uri.fsPath;
+        let workspaceFolderPath = workspaceFolder && workspaceFolder.uri.fsPath;
         let documentText = document.getText();
 
-        return execMixFormat(workspaceFolderPath, documentText)
+        return execMixFormat(documentText, workspaceFolderPath)
             .then(
                 formattedText => [replaceFullDocumentText(document, formattedText)],
                 mixFormatError => {
@@ -30,7 +29,7 @@ export default class ElixirDocumentFormattingEditProvider
     }
 }
 
-function execMixFormat(workingDirectory: string, inputText: string): Thenable<string> {
+function execMixFormat(inputText: string, workingDirectory?: string): Thenable<string> {
     return new Promise((resolve, reject) => {
         let mixFormatProcess =
             execFile('mix', ['format', '-'], { cwd: workingDirectory },

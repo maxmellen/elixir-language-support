@@ -6,8 +6,10 @@ import * as vscode from 'vscode';
 import ElixirDocumentFormattingEditProvider
     from './ElixirDocumentFormattingEditProvider';
 
-const ELIXIR_MODE: vscode.DocumentFilter =
-    { language: 'elixir', scheme: 'file' };
+const ELIXIR_MODE: vscode.DocumentSelector = [
+    { language: 'elixir', scheme: 'file' },
+    { language: 'elixir', scheme: 'untitled' }
+];
 
 // this method is called when your extension is activated
 export function activate(context: vscode.ExtensionContext) {
