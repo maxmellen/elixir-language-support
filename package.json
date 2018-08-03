@@ -3,6 +3,11 @@
     "displayName": "Elixir Language Support",
     "description": "Basic support for the Elixir programming language in VS Code.",
     "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/maxmellen/elixir-language-support"
+    },
+    "icon": "icon.png",
     "publisher": "maxmellen",
     "engines": {
         "vscode": "^1.25.0"
