@@ -1,13 +1,19 @@
 {
+	"ee": {
+		"prefix": "ee",
+		"body": "<% $0 %>",
+		"description": "Insert EEx Tag",
+		"scope": "text.elixir,text.html.elixir"
+	},
 	"case": {
 		"prefix": "case",
-		"body": "case $1 do\n  $2 ->\n    $0\nend",
+		"body": "case $1 do\n\t$2 ->\n\t\t$0\nend",
 		"description": "case",
 		"scope": "source.elixir"
 	},
 	"cond": {
 		"prefix": "cond",
-		"body": "cond do\n  $1 ->\n    $0\nend",
+		"body": "cond do\n\t$1 ->\n\t\t$0\nend",
 		"description": "cond",
 		"scope": "source.elixir"
 	},
@@ -43,7 +49,7 @@
 	},
 	"defi": {
 		"prefix": "defi",
-		"body": "defimpl $1, for: $2 do\n  $0\nend",
+		"body": "defimpl $1, for: $2 do\n\t$0\nend",
 		"description": "defimpl",
 		"scope": "source.elixir"
 	},
@@ -79,7 +85,7 @@
 	},
 	"defpro": {
 		"prefix": "defpro",
-		"body": "defprotocol $1 do\n  $0\nend",
+		"body": "defprotocol $1 do\n\t$0\nend",
 		"description": "defprotocol",
 		"scope": "source.elixir"
 	},
@@ -101,12 +107,6 @@
 		"description": "doc",
 		"scope": "source.elixir"
 	},
-	"ee": {
-		"prefix": "ee",
-		"body": "<% $0 %>",
-		"description": "embed_eex",
-		"scope": "text.elixir,text.html.elixir"
-	},
 	"fn": {
 		"prefix": "fn",
 		"body": "fn ${1:args}${1/(.+)/(?1: )/}-> $2 end$0",
@@ -115,19 +115,19 @@
 	},
 	"for": {
 		"prefix": "for",
-		"body": "for ${1:item} <- ${2:items} do\n  $0\nend",
+		"body": "for ${1:item} <- ${2:items} do\n\t$0\nend",
 		"description": "for",
 		"scope": "source.elixir"
 	},
 	"if": {
 		"prefix": "if",
-		"body": "if $1 do\n  $0\nend",
+		"body": "if $1 do\n\t$0\nend",
 		"description": "if",
 		"scope": "source.elixir"
 	},
 	"ife": {
 		"prefix": "ife",
-		"body": "if $1 do\n  $2\nelse\n  $0\nend",
+		"body": "if $1 do\n\t$2\nelse\n\t$0\nend",
 		"description": "if else",
 		"scope": "source.elixir"
 	},
@@ -179,15 +179,15 @@
 		"description": "moduledoc",
 		"scope": "source.elixir"
 	},
-	"pe": {
-		"prefix": "pe",
-		"body": "<%= $0 %>",
-		"description": "print_eex",
-		"scope": "text.elixir,text.html.elixir"
+	"pry": {
+		"prefix": "pry",
+		"body": "require IEx; IEx.pry()",
+		"description": "pry",
+		"scope": "source.elixir"
 	},
 	"rec": {
 		"prefix": "rec",
-		"body": "receive do\n\t${1:{${2::${3:message_type}}, ${4:value}\\}} ->\n    ${0:# code}\nend\n",
+		"body": "receive do\n\t${1:{${2::${3:message_type}}, ${4:value}\\}} ->\n\t\t${0:# code}\nend",
 		"description": "receive",
 		"scope": "source.elixir"
 	},
@@ -199,13 +199,13 @@
 	},
 	"unless": {
 		"prefix": "unless",
-		"body": "unless $1 do\n  $0\nend",
+		"body": "unless $1 do\n\t$0\nend",
 		"description": "unless",
 		"scope": "source.elixir"
 	},
 	"unlesse": {
 		"prefix": "unlesse",
-		"body": "unless $1 do\n  $2\nelse\n  $0\nend",
+		"body": "unless $1 do\n\t$2\nelse\n\t$0\nend",
 		"description": "unless else",
 		"scope": "source.elixir"
 	},
