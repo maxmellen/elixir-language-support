@@ -21,17 +21,19 @@
     ],
     "main": "./out/extension",
     "contributes": {
-        "languages": [{
-            "id": "elixir",
-            "aliases": ["Elixir", "elixir"],
-            "extensions": [".ex",".exs"],
-            "configuration": "./language-configuration.json"
-        }],
         "grammars": [{
             "language": "elixir",
             "scopeName": "source.elixir",
             "path": "./syntaxes/elixir.tmLanguage"
         }],
+        "languages": [
+            {
+                "id": "elixir",
+                "aliases": ["Elixir", "elixir"],
+                "extensions": [".ex",".exs"],
+                "configuration": "./elixir.language-configuration.json"
+            }
+        ],
         "snippets": [{
             "language": "elixir",
             "path": "./snippets/snippets.json"
