@@ -29,6 +29,11 @@
                 "configuration": "./elixir.language-configuration.json"
             },
             {
+                "id": "eex",
+                "aliases": ["EEx", "eex"],
+                "extensions": [".eex"]
+            },
+            {
                 "id": "html-eex",
                 "aliases": ["HTML (EEx)", "html (eex)"],
                 "extensions": [".html.eex"],
@@ -40,6 +45,11 @@
                 "language": "elixir",
                 "scopeName": "source.elixir",
                 "path": "./syntaxes/elixir.tmLanguage"
+            },
+            {
+                "language": "eex",
+                "scopeName": "text.elixir",
+                "path": "./syntaxes/eex.tmLanguage"
             },
             {
                 "language": "html-eex",
