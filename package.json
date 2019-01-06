@@ -21,17 +21,30 @@
     ],
     "main": "./out/extension",
     "contributes": {
-        "grammars": [{
-            "language": "elixir",
-            "scopeName": "source.elixir",
-            "path": "./syntaxes/elixir.tmLanguage"
-        }],
         "languages": [
             {
                 "id": "elixir",
                 "aliases": ["Elixir", "elixir"],
                 "extensions": [".ex",".exs"],
                 "configuration": "./elixir.language-configuration.json"
+            },
+            {
+                "id": "html-eex",
+                "aliases": ["HTML (EEx)", "html (eex)"],
+                "extensions": [".html.eex"],
+                "configuration": "./html.eex.language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "elixir",
+                "scopeName": "source.elixir",
+                "path": "./syntaxes/elixir.tmLanguage"
+            },
+            {
+                "language": "html-eex",
+                "scopeName": "text.html.elixir",
+                "path": "./syntaxes/html.eex.tmLanguage"
             }
         ],
         "snippets": [{
