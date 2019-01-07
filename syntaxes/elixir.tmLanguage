@@ -475,7 +475,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defmacrop?|defguardp?|defdelegate|defexception|defoverridable|exit|after|rescue|catch|else|raise|throw|import|require|alias|use|quote|unquote|super|with)\b(?![?!:])</string>
+					<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defmacrop?|defguardp?|defdelegate|defexception|defoverridable|exit|after|rescue|catch|else|raise|reraise|throw|import|require|alias|use|quote|unquote|super|with)\b(?![?!:])</string>
 					<key>name</key>
 					<string>keyword.control.elixir</string>
 				</dict>
@@ -573,13 +573,13 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b0b[01]+\b</string>
+					<string>\b0b[01](?&gt;_?[01])*\b</string>
 					<key>name</key>
 					<string>constant.numeric.binary.elixir</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b0o[0-7]+\b</string>
+					<string>\b0o[0-7](?&gt;_?[0-7])*\b</string>
 					<key>name</key>
 					<string>constant.numeric.octal.elixir</string>
 				</dict>
