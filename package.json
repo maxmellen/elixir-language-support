@@ -25,19 +25,19 @@
             "id": "elixir",
             "aliases": ["Elixir", "elixir"],
             "extensions": [".ex",".exs"],
-            "configuration": "./elixir.language-configuration.json"
+            "configuration": "./elixir-language-configuration.json"
         },
         {
             "id": "eex",
             "aliases": ["EEx", "eex"],
             "extensions": [".eex"],
-            "configuration": "./html.eex.language-configuration.json"
+            "configuration": "./eex-language-configuration.json"
         },
         {
             "id": "html-eex",
             "aliases": ["HTML (EEx)", "html (eex)"],
             "extensions": [".html.eex"],
-            "configuration": "./html.eex.language-configuration.json"
+            "configuration": "./eex-language-configuration.json"
         }],
         "grammars": [{
             "language": "elixir",
@@ -52,7 +52,7 @@
         {
             "language": "html-eex",
             "scopeName": "text.html.elixir",
-            "path": "./syntaxes/html.eex.tmLanguage"
+            "path": "./syntaxes/html-eex.tmLanguage"
         }],
         "snippets": [{
             "language": "elixir",
