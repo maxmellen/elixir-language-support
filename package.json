@@ -25,6 +25,7 @@
             "id": "elixir",
             "aliases": ["Elixir", "elixir"],
             "extensions": [".ex",".exs"],
+            "filenames": ["mix.lock"],
             "configuration": "./elixir-language-configuration.json"
         },
         {
